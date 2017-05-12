@@ -1,0 +1,130 @@
+package IServer;
+
+import IceStorm.TopicManagerPrx;
+import IceStorm.TopicManagerPrxHelper;
+
+public class Subscriber extends Ice.Application
+{
+    
+    
+
+    @Override
+    public int run(String[] args)
+    {
+      
+
+        String topicName = "time";
+        String option = "None";
+        boolean batch = false;
+        String id = null;
+        String retryCount = null;
+
+
+
+        TopicManagerPrx manager = TopicManagerPrxHelper.checkedCast(communicator().propertyToProxy("TopicManager.Proxy"));
+        if(manager == null)
+        {
+            System.err.println("invalid proxy");
+            return 1;
+        }
+
+        //
+        // Retrieve the topic.
+        //
+       IceStorm.TopicPrx topic;
+        try
+        {
+            topic = manager.retrieve(topicName);
+        }
+        catch(IceStorm.NoSuchTopic e)
+        {
+            try
+            {
+                topic = manager.create(topicName);
+            }
+            catch(IceStorm.TopicExists ex)
+            {
+                System.err.println(appName() + ": temporary failure, try again.");
+                return 1;
+            }
+        }
+
+        Ice.ObjectAdapter adapter = communicator().createObjectAdapter("Clock.Subscriber");
+
+        //
+        // Add a servant for the Ice object. If --id is used the
+        // identity comes from the command line, otherwise a UUID is
+        // used.
+        //
+        // id is not directly altered since it is used below to detect
+        // whether subscribeAndGetPublisher can raise
+        // AlreadySubscribed.
+        //
+      Ice.Identity subId = new Ice.Identity(id, "");
+      Ice.Identity subId2 = new Ice.Identity(id, "");
+        if(subId.name == null)
+        {
+            subId.name = java.util.UUID.randomUUID().toString();
+        }
+        Ice.ObjectPrx subscriber = adapter.add(new Network(), subId);
+        Ice.ObjectPrx sub = adapter.add(new ManageFile(), subId);
+        //
+        // Activate the object adapter before subscribing.
+        //
+        adapter.activate();
+
+        java.util.Map<String, String> qos = new java.util.HashMap<>();
+        if(retryCount != null)
+        {
+            qos.put("retryCount", retryCount);
+        }
+        //
+        // Set up the proxy.
+        //
+        
+        subscriber = subscriber.ice_oneway();
+        sub = sub.ice_oneway();
+        try
+        {
+            topic.subscribeAndGetPublisher(qos, subscriber);
+            topic.subscribeAndGetPublisher(qos, sub);
+        }
+        catch(IceStorm.AlreadySubscribed e)
+        {
+            // If we're manually setting the subscriber id ignore.
+            if(id == null)
+            {
+                e.printStackTrace();
+                return 1;
+            }
+            else
+            {
+                System.out.println("reactivating persistent subscriber");
+            }
+        }
+        catch(IceStorm.InvalidSubscriber e)
+        {
+            e.printStackTrace();
+            return 1;
+        }
+        catch(IceStorm.BadQoS e)
+        {
+            e.printStackTrace();
+            return 1;
+        }
+
+        shutdownOnInterrupt();
+        communicator().waitForShutdown();
+
+        topic.unsubscribe(subscriber);
+
+        return 0;
+    }
+
+    public static void main(String[] args)
+    {
+        Subscriber app = new Subscriber();
+        int status = app.main("Subscriber", args, "config.sub");
+        System.exit(status);
+    }
+}

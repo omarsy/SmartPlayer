@@ -1,0 +1,29 @@
+package DBControl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBConnection {
+	 private Connection c;
+	 private static DBConnection dbcon;
+	private DBConnection() throws ClassNotFoundException, SQLException
+	{
+	
+		   Class.forName("org.sqlite.JDBC");
+		    c = DriverManager.getConnection("jdbc:sqlite:iserver.db");
+	}
+	public static DBConnection getDBConnection() throws ClassNotFoundException, SQLException
+	{
+		
+			dbcon =  new DBConnection();
+		return dbcon;
+	}
+	public Connection getConnection() throws SQLException
+	{
+		
+		return c;
+	}
+	
+	
+}

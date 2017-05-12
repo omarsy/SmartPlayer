@@ -1,0 +1,31 @@
+<!--
+  Generated template for the ListSon page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Sons</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of manage.tracks" (click)="play(item)">
+            <ion-thumbnail item-left>
+                <img src="{{item.cover == '' ? assets/music.png : item.cover}}">
+            </ion-thumbnail>
+            <h2> {{ item.titre }} </h2>
+            <p> {{ item.artiste }} </p>
+            <p> {{ item.album }} </p>
+
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer color="dark">
+    <audio-player style="margin:0%; padding:0%;"></audio-player>
+</ion-footer>

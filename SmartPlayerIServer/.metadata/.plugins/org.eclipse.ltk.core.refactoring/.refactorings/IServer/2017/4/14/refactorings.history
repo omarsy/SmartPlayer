@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 6 elements from project &apos;IServer&apos;&#x0D;&#x0A;- Original project: &apos;IServer&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     __Freeze&#x0D;&#x0A;     __catalog&#x0D;&#x0A;     __catalogIndexList&#x0D;&#x0A;     llu&#x0D;&#x0A;     log.0000000001&#x0D;&#x0A;     subscribers" description="Delete elements" element1="db/__catalog" element2="db/__catalogIndexList" element3="db/llu" element4="db/log.0000000001" element5="db/__Freeze" element6="db/subscribers" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="6" stamp="1491516244211" subPackages="false" version="1.0"/>
+</session>

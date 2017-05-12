@@ -1,0 +1,23 @@
+<!--
+  Generated template for the AudioPlayer component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+
+<ion-card style="padding: 0 !important;margin: 0 !important; width:100%;" dark>
+    <ion-card-content style="padding: 0 !important;">
+        <ion-item style="padding: 0 !important;">
+            <ion-thumbnail item-left>
+                <img src="{{player.trackfocus.art}}">
+                <audio-track-play dark [audioTrack]="player.trackfocus">
+                    <ion-spinner></ion-spinner>
+                </audio-track-play>
+            </ion-thumbnail>
+            <div item-content style="width:100%;">
+                <p><strong>{{player.trackfocus.title}}</strong> ⚬ <em>{{player.trackfocus.artist}}</em></p>
+                <audio-track-progress-bar dark duration progress [audioTrack]="player.trackfocus" [ngStyle]="{visibility: player.trackfocus?.completed > 0 ? 'visible' : 'hidden'}"></audio-track-progress-bar>
+            </div>
+        </ion-item>
+    </ion-card-content>
+</ion-card>

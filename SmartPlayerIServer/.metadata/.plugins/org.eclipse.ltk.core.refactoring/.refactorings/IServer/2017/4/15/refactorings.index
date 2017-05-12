@@ -1,0 +1,19 @@
+1491830467429	Encapsulate field 'nom'
+1491830475303	Encapsulate field 'ip'
+1491830483087	Encapsulate field 'id'
+1491830646600	Encapsulate field 'titre'
+1491830710813	Encapsulate field 'artiste'
+1491830719182	Encapsulate field 'album'
+1491830727308	Encapsulate field 'cover'
+1491830736893	Encapsulate field 'idServer'
+1491831967805	Rename type 'DBManage'
+1491862078744	Encapsulate field 'url'
+1491862146646	Encapsulate field 'id'
+1491863397677	Delete element
+1491863403699	Delete element
+1491865153879	Encapsulate field 'dispo'
+1492206557258	Delete element
+1492206799026	Delete element
+1492269510924	Delete element
+1492269531062	Delete element
+1492269604607	Delete element

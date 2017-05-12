@@ -1,0 +1,108 @@
+package IServer;
+
+import Ice.Application;
+import Ice.CommunicatorDestroyedException;
+import Ice.ObjectPrx;
+import IceStorm.NoSuchTopic;
+import IceStorm.TopicManagerPrx;
+import IceStorm.TopicManagerPrxHelper;
+import IceStorm.TopicPrx;
+import ManageMusic.newSongRequestPrx;
+import manageMusic.newSongRequestPrxHelper;
+import musicRequest.requestServerPrx;
+
+public class IServerToClient extends Application
+{
+ 
+
+ @Override
+ public int run(String[] args)
+ {
+     String option = "None";
+     String topicName = "time";
+     option = "Oneway";
+     topicName = "jj";
+
+
+     TopicManagerPrx manager = TopicManagerPrxHelper.checkedCast(communicator().propertyToProxy("TopicManager.Proxy"));
+     if(manager == null)
+     {
+         System.err.println("invalid proxy");
+         return 1;
+     }
+
+     //
+     // Retrieve the topic.
+     //
+     TopicPrx topic;
+     try
+     {
+         topic = manager.retrieve(topicName);
+     }
+     catch(NoSuchTopic e)
+     {
+         try
+         {
+             topic = manager.create(topicName);
+         }
+         catch(IceStorm.TopicExists ex)
+         {
+             System.err.println(appName() + ": temporary failure, try again.");
+             return 1;
+         }
+     }
+
+     //
+     // Get the topic's publisher object, and create a Clock proxy with
+     // the mode specified as an argument of this application.
+     //
+     ObjectPrx publisher = topic.getPublisher();
+     if(option.equals("Datagram"))
+     {
+         publisher = publisher.ice_datagram();
+     }
+     else if(option.equals("Twoway"))
+     {
+         // Do nothing.
+     }
+     else // if(oneway)
+     {
+         publisher = publisher.ice_oneway();
+     }
+     newSongRequestPrx newsong = newSongRequestPrxHelper.uncheckedCast(publisher);
+
+     System.out.println("publishing tick events. Press ^C to terminate the application.");
+     try
+     {
+         
+         while(true)
+         {
+             
+             newsong.newMusic("dddd","ggg");
+
+             try
+             {
+                 Thread.currentThread();
+                 Thread.sleep(1000);
+             }
+             catch(java.lang.InterruptedException e)
+             {
+             }
+         }
+     }
+     catch(CommunicatorDestroyedException ex)
+     {
+         // Ignore
+     }
+
+     return 0;
+ }
+
+ public static void main(String[] args)
+ {
+     IServerToClient app = new IServerToClient();
+     int status = app.main("Publisher", args, "config.pub");
+     System.exit(status);
+ }
+}
+

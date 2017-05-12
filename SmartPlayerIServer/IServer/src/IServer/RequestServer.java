@@ -1,0 +1,29 @@
+package IServer;
+
+import Ice.Current;
+import musicRequest._requestServerDisp;
+
+
+public class RequestServer extends _requestServerDisp{
+
+	@Override
+	public String findByName(String nom, Current __current) {
+		// TODO Auto-generated method stub
+		System.out.println(nom);
+		return "jjj";
+	}
+
+	@Override
+	public String findById(int id, Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] findAll(Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

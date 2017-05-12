@@ -1,0 +1,166 @@
+package IServer;
+
+import Ice.Current;
+import Ice.DispatchInterceptorAsyncCallback;
+import Ice.DispatchStatus;
+import Ice.InputStream;
+import Ice.Object;
+import Ice.OutputStream;
+import Ice.Request;
+import IceInternal.BasicStream;
+import IceInternal.Incoming;
+import musicRequest.requestServer;
+
+public class RequestServer implements requestServer{
+
+	@Override
+	public DispatchStatus __dispatch(Incoming arg0, Current arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void __read(BasicStream arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void __read(InputStream arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void __write(BasicStream arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void __write(OutputStream arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DispatchStatus ice_dispatch(Request arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DispatchStatus ice_dispatch(Request arg0, DispatchInterceptorAsyncCallback arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String ice_id() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String ice_id(Current arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] ice_ids() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] ice_ids(Current arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean ice_isA(String arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ice_isA(String arg0, Current arg1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int ice_operationAttributes(String arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void ice_ping() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ice_ping(Current arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ice_postUnmarshal() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ice_preMarshal() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String findByName(String nom, Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String findById(int id, Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] findAll(Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String findByName(String nom) {
+		// TODO Auto-generated method stub
+		return "hhhhh";
+	}
+
+	@Override
+	public String findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

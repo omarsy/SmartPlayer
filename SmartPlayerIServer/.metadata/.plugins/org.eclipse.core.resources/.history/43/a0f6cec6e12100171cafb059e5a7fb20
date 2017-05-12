@@ -1,0 +1,102 @@
+package IServer;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+
+import Ice.Current;
+import ManageMusic.Server;
+import ManageMusic.Sound;
+import ManageMusic._RequestDisp;
+
+public class Request extends _RequestDisp {
+
+	@Override
+	public Server[] getServers(Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			HashMap<Integer,Entity.Server> data =  Entity.Server.getServersDispo();
+			ManageMusic.Server [] servers = new ManageMusic.Server[data.size()];
+			int i =0;
+			for(Server server: data)
+			{
+				server[i] = server;
+				i++;
+			}
+			return (ManageMusic.Server[]) Entity.Server.getServersDispo().values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Sound[] getAllSounds(Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			return (Sound[]) Entity.Sound.getAllSounds().values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Sound[] getSoundsByServer(int idServer, Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			return (Sound[]) Entity.Sound.getSoundsByServer(idServer).values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Sound[] getSoundByArtist(String artist, Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			return (Sound[]) Entity.Sound.getSoundsByArtist(artist).values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Sound[] getSoundByAlbum(String album, Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			return (Sound[]) Entity.Sound.getSoundsByAlbum(album).values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void deleteSound(Sound sound, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

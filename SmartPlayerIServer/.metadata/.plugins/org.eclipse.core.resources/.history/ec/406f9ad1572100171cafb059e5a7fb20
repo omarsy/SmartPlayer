@@ -1,0 +1,10 @@
+package IServer;
+
+import Ice.Current;
+import ManageMusic._NetworkDisp;
+
+public class Network extends _NetworkDisp {
+
+
+	
+}

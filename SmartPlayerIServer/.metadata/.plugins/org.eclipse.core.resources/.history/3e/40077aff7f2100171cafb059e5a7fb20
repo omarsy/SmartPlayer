@@ -1,0 +1,32 @@
+package IServer;
+
+import java.sql.SQLException;
+
+import Ice.Current;
+import ManageMusic.Sound;
+import ManageMusic._ManageFileDisp;
+
+public class ManageFile extends _ManageFileDisp {
+
+	@Override
+	public void delete(String path, int id, Current __current) {
+		// TODO Auto-generated method stub
+		Entity.Sound.delete(path, id);
+	}
+
+	@Override
+	public void newMusic(Sound sound, String url, int id, Current __current) {
+		// TODO Auto-generated method stub
+	System.out.println(url);
+		try {
+		Entity.Sound.addNewSound(new Entity.Sound(-1, sound.titre, sound.artist, sound.album, sound.cover, url, id));
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}	
+	}
+
+}

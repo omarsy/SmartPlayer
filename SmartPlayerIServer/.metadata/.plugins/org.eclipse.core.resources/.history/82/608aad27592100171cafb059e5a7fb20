@@ -1,0 +1,51 @@
+package IServer;
+
+import java.sql.SQLException;
+
+import Entity.*;
+import Ice.Current;
+import ManageMusic._NetworkDisp;
+
+public class Network extends _NetworkDisp {
+
+	@Override
+	public int inscription(String name, Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			Server.addNewServer(new Server(-1,name,"",false));
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return - 1;
+			// TODO Auto-generated catch block
+			
+		} catch (SQLException e) {
+			return -1;
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Server server = Server.getServerByName(name);
+		return (server == null)? -1 : server.getId(); 
+		
+	}
+
+	@Override
+	public void changeIp(String ip, int id, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deconnexion(int id, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void connexion(String ip, int id, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+}

@@ -1,0 +1,9 @@
+je veux ecouter une <musicNom> = 0 0 1 0 13<musicId>
+joue moi cette <musicNom> = 1 0 0 13<musicId>
+stop la <musicNom> = 2 0 23<musicId>
+je veux que tu joues cette <musicNom> = 0 0 0 0 1 0 13<musicId>
+je veux que tu mettes en pause = 0 0 0 0 0 0 5
+pause et chercher moi la <musicNom>  = 5 0 6 0 0 63<musicId>
+pause et cherche moi l'album <musicAlbum> = 5 0 6 0 0 613<musicId>
+pause et cherche moi l'artiste <musicArtiste> = 5 0 6 0 0 62<musicId>
+cherche moi les musiques de l'artiste <musicArtiste> = 6 0 0 0 0 0 62<musicId>

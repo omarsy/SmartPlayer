@@ -1,0 +1,21 @@
+retour en arriere = 3 0 3
+retour en avant = 4 0 4
+mets pause = 0 5
+pause = 5
+stop = 2
+stoppe = 2
+suivant = 4
+retour = 3
+precedent = 3
+lis = 1
+play = 1
+avant = 4
+arriere = 3je veux ecouter une sommeil = 0 0 1 0 131
+joue moi cette sommeil = 1 0 0 131
+stop la sommeil = 2 0 231
+je veux que tu joues cette sommeil = 0 0 0 0 1 0 131
+je veux que tu mettes en pause = 0 0 0 0 0 0 5
+pause et chercher moi la sommeil  = 5 0 6 0 0 631
+pause et cherche moi l'album racine carree = 5 0 6 0 0 6131
+pause et cherche moi l'artiste Stromae = 5 0 6 0 0 621
+cherche moi les musiques de l'artiste Stromae = 6 0 0 0 0 0 621

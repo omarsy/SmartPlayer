@@ -1,0 +1,1 @@
+publishing tick events. Press ^C to terminate the application.

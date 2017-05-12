@@ -1,0 +1,66 @@
+package IServer;
+
+import java.sql.SQLException;
+
+import Ice.Current;
+import ManageMusic.Server;
+import ManageMusic.Sound;
+import ManageMusic._RequestDisp;
+
+public class Request extends _RequestDisp {
+
+	@Override
+	public Server[] getServers(Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			return (Server[]) Entity.Server.getServersDispo().values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Sound[] getAllSounds(Current __current) {
+		// TODO Auto-generated method stub
+		try {
+			return (Sound[]) Entity.Sound.getAllSounds().values().toArray();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Sound[] getSoundsByServer(int idServer, Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sound[] getSoundByArtist(String artist, Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sound[] getSoundByAlbum(String artist, Current __current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteSound(Sound sound, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Ice.Application"/>
+<fullyQualifiedTypeName name="IceStorm.TopicPrx"/>
+<fullyQualifiedTypeName name="IceStorm.NoSuchTopic"/>
+<fullyQualifiedTypeName name="Ice.ObjectPrx"/>
+<fullyQualifiedTypeName name="musicRequest.requestServerPrx"/>
+<fullyQualifiedTypeName name="Ice.CommunicatorDestroyedException"/>
+<fullyQualifiedTypeName name="IceStorm.TopicManagerPrx"/>
+<fullyQualifiedTypeName name="manageMusic.newSongRequestPrx"/>
+<fullyQualifiedTypeName name="IceStorm.TopicManagerPrxHelper"/>
+<fullyQualifiedTypeName name="manageMusic.newSongRequestPrxHelper"/>
+<fullyQualifiedTypeName name="ManageMusic._ManageFileDisp"/>
+<fullyQualifiedTypeName name="ManageMusic.Sound"/>
+<fullyQualifiedTypeName name="Entity.Server"/>
+<fullyQualifiedTypeName name="Entity.Sound"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="ManageMusic.ServerHolder"/>
+<fullyQualifiedTypeName name="ManageMusic.Server"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="repository.SoundRepository"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletRegistration"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+</qualifiedTypeNameHistroy>

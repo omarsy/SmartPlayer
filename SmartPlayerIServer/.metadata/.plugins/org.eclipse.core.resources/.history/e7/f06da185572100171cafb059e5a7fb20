@@ -1,0 +1,26 @@
+package IServer;
+
+import Ice.Current;
+import ManageMusic._NetworkDisp;
+
+public class Network extends _NetworkDisp {
+
+	@Override
+	public void passIp(String ip, int id, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deconnexion(Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void connexion(String ip, String id, Current __current) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

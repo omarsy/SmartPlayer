@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+            <button ion-button icon-only (click)="goSpeach()">
+        <ion-icon name="mic" ></ion-icon>
+      </button>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let item of manage.servers" (click)="serverSelected(item)">
+            {{ item.nom }}
+        </button>
+    </ion-list>
+</ion-content>
+<ion-footer color="dark">
+    <audio-player style="margin:0%; padding:0%;"></audio-player>
+</ion-footer>
